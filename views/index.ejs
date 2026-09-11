@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Book Notes</title>
+</head>
+<body>
+    <h1> My Book Notes</h1>
+    <p>Welcome to my book collection!</p>
+
+    <form action="/" method="GET" style="display: inline;">
+        <button type="submit" name="sort" value="rating">
+            Sort by Rating
+        </button>
+    </form>
+
+    <form action="/" method="GET" style="display: inline;">
+        <button type="submit">Show All</button>
+    </form>
+
+    <% books.forEach(book => { %>
+
+        <h2><%= book.title %></h2>
+        <% if (book.cover_url) { %>
+            <img src="<%= book.cover_url %>" alt="<%= book.title %>" width="150">
+        <% } %>
+        <p>Author: <%= book.author %></p>
+        <p>Rating: <%= book.rating %></p>
+        <p>Notes: <%= book.notes %></p>
+        <p>Date Read: <%= book.date_read.toLocaleDateString("en-GB") %></p>
+
+        <a href="/edit/<%= book.id %>">Edit</a> <br><br>
+        <form action="/delete/<%= book.id %>" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+    
+    <% }) %>
+
+    <h2>Add a Book</h2>
+
+    <form action="/add-book" method="POST">
+
+        <input type="text" name="title" placeholder="Book Title"><br><br>
+
+        <input type="text" name="author" placeholder="Author"><br><br>
+
+        <input type="number" name="rating" placeholder="Rating"><br><br>
+
+        <textarea name="notes" placeholder="Your notes"></textarea><br><br>
+
+        <input type="date" name="date_read"><br><br>
+
+        <button type="submit">Add Book</button>
+
+    </form>
+
+</body>
+</html>
