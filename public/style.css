@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+button {
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+input,
+textarea {
+    padding: 8px;
+    margin: 5px;
+}
+
+img {
+    display: block;
+    margin: 10px 0;
+}
+
+form {
+    margin-bottom: 15px;
+}
+

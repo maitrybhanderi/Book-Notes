@@ -7,9 +7,10 @@ dotenv.config();
 const { Pool } = pg;
 const app = express();
 
-app.use(express.urlencoded({ extended: true }));
-
 app.set("view engine","ejs");
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"));
 
 const PORT = 3000;
 
